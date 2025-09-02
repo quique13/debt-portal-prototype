@@ -115,7 +115,10 @@ export default function App() {
             <div className="col-12">
               <div className="row" style={{justifyContent:'space-between', alignItems:'baseline'}}>
                 <div>
-                  <div className="section-title" style={{marginTop:0}}>{client.nombre}</div>
+                  <div className="row" style={{alignItems:'center', gap:8}}>
+                    <div className="section-title" style={{marginTop:0}}>{client.nombre}</div>
+                    <span className="control-id">Control 1.15.12.2.145</span>
+                  </div>
                   <div className="label">Saldo actual</div>
                   <div className="price">{currency.format(client.saldoActual)}</div>
                 </div>
@@ -140,7 +143,7 @@ export default function App() {
                   value={slider}
                   onChange={(e) => setSlider(parseInt(e.target.value, 10))}
                 />
-                {/* Marcas (círculos) solo visuales */}
+                {/* Marcas (círculos) */}
                 <div className="ticks" aria-hidden="true">
                   {Array.from({ length: 12 }, (_, i) => {
                     const val = i + 1
@@ -154,18 +157,23 @@ export default function App() {
                   })}
                 </div>
 
-                {/* Números bajo las marcas */}
+                {/* Números bajo las marcas (el activo en amarillo) */}
                 <div className="tick-legend" aria-hidden="true">
-                  {Array.from({ length: 12 }, (_, i) => <span key={i+1}>{i+1}</span>)}
+                  {Array.from({ length: 12 }, (_, i) => {
+                    const val = i + 1
+                    return (
+                      <span key={val} className={slider === val ? 'active' : ''}>{val}</span>
+                    )
+                  })}
                 </div>
-                <div className="row" style={{gap:8, marginTop:8}}>
-                  <span className="chip">1: máx.</span>
-                  <span className="chip">2: 45%</span>
-                  <span className="chip">3: 40%</span>
-                  <span className="chip">4: 35%</span>
-                  <span className="chip">5: 30%</span>
-                  <span className="chip">6: 25%</span>
-                  <span className="chip">7–12: 0%</span>
+                <div className="row" style={{gap:8, marginTop:8, flexWrap:'wrap'}}>
+                  <span className="chip"><span className="chip-num">1</span>. máx.</span>
+                  <span className="chip"><span className="chip-num">2</span>. 45%</span>
+                  <span className="chip"><span className="chip-num">3</span>. 40%</span>
+                  <span className="chip"><span className="chip-num">4</span>. 35%</span>
+                  <span className="chip"><span className="chip-num">5</span>. 30%</span>
+                  <span className="chip"><span className="chip-num">6</span>. 25%</span>
+                  <span className="chip"><span className="chip-num">7–12</span>. 0%</span>
                 </div>
               </div>
             </div>
