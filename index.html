@@ -39,6 +39,48 @@
       .muted{opacity:.75}
       .footer{opacity:.7;font-size:12px;margin-top:10px}
       .warn{color:var(--warn)}
+      /* --- Marcas bajo el slider --- */
+.ticks {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 0;
+  margin-top: 6px;
+}
+.tick {
+  width: 12px;
+  height: 12px;
+  border-radius: 999px;
+  background: #334155;        /* gris */
+  border: 1px solid #475569;
+  margin: 0 auto;
+}
+.tick.active {
+  background: #f59e0b;        /* amarillo */
+  border-color: #f59e0b;
+  box-shadow: 0 0 0 3px rgba(245,158,11,.25);
+}
+
+/* Opción rayitas en vez de círculos (por si luego la prefieres) */
+.tick-line {
+  width: 2px;
+  height: 14px;
+  background: #475569;
+  margin: 0 auto;
+}
+.tick-line.active {
+  background: #f59e0b;
+  box-shadow: 0 0 0 3px rgba(245,158,11,.25);
+}
+
+/* Números bajo cada marca */
+.tick-legend {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  margin-top: 3px;
+  font-size: 11px;
+  opacity: .75;
+}
+.tick-legend span { justify-self: center; }
     </style>
   </head>
   <body>
