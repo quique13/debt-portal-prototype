@@ -140,6 +140,24 @@ export default function App() {
                   value={slider}
                   onChange={(e) => setSlider(parseInt(e.target.value, 10))}
                 />
+                {/* Marcas (círculos) solo visuales */}
+                <div className="ticks" aria-hidden="true">
+                  {Array.from({ length: 12 }, (_, i) => {
+                    const val = i + 1
+                    return (
+                      <span
+                        key={val}
+                        className={`tick ${slider === val ? 'active' : ''}`}
+                        title={`${val} cuota${val > 1 ? 's' : ''}`}
+                      />
+                    )
+                  })}
+                </div>
+
+                {/* Números bajo las marcas */}
+                <div className="tick-legend" aria-hidden="true">
+                  {Array.from({ length: 12 }, (_, i) => <span key={i+1}>{i+1}</span>)}
+                </div>
                 <div className="row" style={{gap:8, marginTop:8}}>
                   <span className="chip">1: máx.</span>
                   <span className="chip">2: 45%</span>
