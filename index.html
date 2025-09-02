@@ -81,6 +81,60 @@
   opacity: .75;
 }
 .tick-legend span { justify-self: center; }
+
+/* --- Control ID (a la derecha del nombre) --- */
+.control-id {
+  font-size: 12px;
+  opacity: .85;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: #0b1221;
+  border: 1px solid #334155;
+  margin-left: 8px;
+  white-space: nowrap;
+}
+
+/* --- Marcas bajo el slider (número también amarillo cuando está activo) --- */
+.ticks {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 0;
+  margin-top: 6px;
+}
+.tick {
+  width: 12px;
+  height: 12px;
+  border-radius: 999px;
+  background: #334155;           /* gris base (no seleccionado) */
+  border: 1px solid #475569;
+  margin: 0 auto;
+}
+.tick.active {
+  background: #f59e0b;           /* amarillo seleccionado */
+  border-color: #f59e0b;
+  box-shadow: 0 0 0 3px rgba(245,158,11,.25);
+}
+
+.tick-legend {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  margin-top: 3px;
+  font-size: 11px;               /* tamaño ref. para usar en chips */
+  opacity: .85;
+}
+.tick-legend span { justify-self: center; }
+.tick-legend span.active {
+  color: #f59e0b;                /* número seleccionado en amarillo */
+  font-weight: 700;
+}
+
+/* --- Estilo del número dentro de cada chip de descuento --- */
+.chip-num {
+  font-size: 11px;               /* igual al de la recta numérica */
+  color: #334155;                /* mismo gris que el círculo no activo */
+  font-weight: 800;
+  margin-right: 4px;
+}
     </style>
   </head>
   <body>
